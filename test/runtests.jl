@@ -9,6 +9,7 @@ f(x) = sum(abs2, x) + .2*randn()
 end # estimate gradient tests
 
 @testset "heuristic" begin
+f(x) = sum(abs2, x) + .2*randn()
 h = SimpleHeuristic()
 init!(Random.GLOBAL_RNG, h, f, [2, 1], 10^4, [.2, .2])
 @test h.c ≈ .2 atol = .15
